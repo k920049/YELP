@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="04508e9a-70ee-4443-85f6-324d83e233f1" name="ec2-user@ec2-15-164-252-68.ap-northeast-2.compute.amazonaws.com" url="http://ec2-15-164-252-68.ap-northeast-2.compute.amazonaws.com">
+        <fileTransfer host="ec2-15-164-252-68.ap-northeast-2.compute.amazonaws.com" port="22" privateKey="$USER_HOME$/MapDKey.pem" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

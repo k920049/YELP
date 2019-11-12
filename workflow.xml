@@ -1,0 +1,28 @@
+<workflow-app name="GeoSpark Runnable Example"
+              xmlns="uri:oozie:workflow:0.5">
+    <start to="spark-node"/>
+    <action name="spark-node">
+        <spark xmlns="uri:oozie:spark-action:0.1">
+            <job-tracker>sandbox-hdp.hortonworks.com:8032</job-tracker>
+            <name-node>hdfs://sandbox-hdp.hortonworks.com:8020</name-node>
+            <master>${master}</master>
+            <mode>${mode}</mode>
+            <name>GeoSpark Runnable Example</name>
+            <class>com.windforces.example.testRDD</class>
+            <jar>hdfs://sandbox-hdp.hortonworks.com:8020/user/root/YELP/target/scala-2.11/yelp_2.11-0.1.jar</jar>
+            <spark-opts>
+                --conf spark.yarn.historyServer.address=http://sandbox-hdp.hortonworks.com:18081
+                --conf spark.eventLog.dir=hdfs://sandbox-hdp.hortonworks.com:8020/user/spark/applicationHistory
+                --conf spark.eventLog.enabled=true
+            </spark-opts>
+        </spark>
+        <ok to="End"/>
+        <error to="Kill"/>
+    </action>
+
+    <kill name="Kill">
+        <message>Action failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+    </kill>
+
+    <end name="End"/>
+</workflow-app>

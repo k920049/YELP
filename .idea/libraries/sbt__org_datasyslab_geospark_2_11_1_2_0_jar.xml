@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="sbt: org.datasyslab:geospark_2.11:1.2.0:jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/geospark_2.11-1.2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
